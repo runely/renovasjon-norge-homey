@@ -21,5 +21,49 @@
   "author": {
     "name": "Rune Moskvil Lyngås",
     "email": "runely85@gmail.com"
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "trash_today",
+        "title": {
+          "en": "Søppel hentes i dag"
+        },
+        "titleFormatted": {
+          "en": "Søppel hentes i dag for [[name]] på [[age]]"
+        },
+        "hint": {
+          "en": "Trigges kl 00:00 den dagen søppel skal hentes"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "name",
+            "placeholder": {
+              "en": "Navn"
+            }
+          },
+          {
+            "type": "number",
+            "name": "age",
+            "placeholder": {
+              "en": "Alder"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "type": "string",
+            "name": "name",
+            "title": {
+              "en": "Søppeltyper"
+            },
+            "example": {
+              "en": "Glass/Metallemballasje og Papir"
+            }
+          }
+        ]
+      }
+    ]
   }
 }

@@ -8,10 +8,12 @@
     "standard": "16.0.4"
   },
   "dependencies": {
-    "axios": "0.24.0"
+    "axios": "0.24.0",
+    "moment-timezone": "0.5.34"
   },
   "scripts": {
     "test": "standard",
-    "homey:run": "homey app run"
+    "homey:run": "homey app run",
+    "homey:install": "homey app install"
   }
 }
