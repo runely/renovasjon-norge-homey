@@ -17,6 +17,7 @@ function onHomeyReady (Homey) {
   const houseNo = document.getElementById('houseNo')
   const streetCode = document.getElementById('streetCode')
   const countyId = document.getElementById('countyId')
+  const countyName = document.getElementById('countyName')
 
   // get settings
   Homey.get(settingsAddress, (error, address) => {
@@ -39,6 +40,8 @@ function onHomeyReady (Homey) {
 
   // search for address
   btnSearch.addEventListener('click', async function (e) {
+    hideError()
+
     const addresses = await getAddressInfo(searchString.value)
     if (!addresses) {
       showError(`${Homey.__('settings.errors.search_failed')} ${searchString.value}`)
@@ -61,6 +64,7 @@ function onHomeyReady (Homey) {
     houseNo.value = address.nummer
     streetCode.value = address.adressekode
     countyId.value = address.kommunenummer
+    countyName.value = address.kommunenavn
   })
 
   // get get_data_failed setting
@@ -88,6 +92,7 @@ function getAddress(Homey) {
   const houseNo = document.getElementById('houseNo')
   const streetCode = document.getElementById('streetCode')
   const countyId = document.getElementById('countyId')
+  const countyName = document.getElementById('countyName')
 
   if (streetName.value.trim() === '' || houseNo.value.trim() === '' || streetCode.value.trim() === '' || countyId.value.trim() === '') {
     showError(`Search to autofill failed.<br>Required fields: <,>${Homey.__('settings.streetName')}, ${Homey.__('settings.houseNo')}, ${Homey.__('settings.streetCode')}, ${Homey.__('settings.countyId')}</i>`)
@@ -98,7 +103,8 @@ function getAddress(Homey) {
     streetName: streetName.value.trim(),
     houseNo: houseNo.value.trim(),
     streetCode: streetCode.value.trim(),
-    countyId: countyId.value.trim()
+    countyId: countyId.value.trim(),
+    countyName: countyName.value.trim()
   }
 }
 
@@ -107,11 +113,14 @@ function showAddress(address = {}) {
   const houseNo = document.getElementById('houseNo')
   const streetCode = document.getElementById('streetCode')
   const countyId = document.getElementById('countyId')
+  const countyName = document.getElementById('countyName')
+
 
   streetName.value = (address && address.streetName) || ''
   houseNo.value = (address && address.houseNo) || ''
   streetCode.value = (address && address.streetCode) || ''
   countyId.value = (address && address.countyId) || ''
+  countyName.value = (address && address.countyName) || ''
 }
 
 function showError(text) {

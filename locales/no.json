@@ -8,6 +8,7 @@
     "houseNo": "Husnummer",
     "streetCode": "Gatenummer",
     "countyId": "Kommunenummer",
+    "countyName": "Kommune",
     "btnSave": "Lagre",
     "saved": "Innstillinger lagret",
     "errors": {
