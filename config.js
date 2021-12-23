@@ -10,6 +10,5 @@ module.exports = {
     KEY_NAME: Homey.env.HEADER_KEY_NAME || 'RenovasjonAppKey',
     KEY_VALUE: Homey.env.HEADER_KEY_VALUE,
     COUNTY_NAME: Homey.env.HEADER_COUNTY_NAME || 'Kommunenr'
-  },
-  API_GEONORGE_URL: Homey.env.API_GEONORGE_URL || 'https://ws.geonorge.no/adresser/v1/sok?sok='
+  }
 }
